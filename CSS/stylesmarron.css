@@ -18,15 +18,30 @@ h4 {
   justify-content: center;
   padding: 10px 20px;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 16px; /* Reduced font-size for better mobile view */
   color: #fff;
   background: linear-gradient(90deg, #4d2c1d, #8a5c4b);
   border: none;
   border-radius: 50px;
   text-decoration: none;
   transition: background 0.3s ease;
+  width: 100%; /* Ensures buttons take full width on mobile */
+  margin: 10px 0;
 }
-
+#reservar-turno {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(90deg, #4d2c1d, #8a5c4b);
+  border: none;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+  margin: 10px 0;
+}
 .btn-custom:hover {
   background: linear-gradient(90deg, #8a5c4b, #4d2c1d);
   color: #fff; 
