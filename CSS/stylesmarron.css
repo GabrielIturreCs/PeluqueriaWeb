@@ -127,9 +127,9 @@ h2 {
 
 .card img {
   width: 100%;
-  border-radius: 50%;
-  height: 100px;
-  object-fit: cover;
+  height: 200px; /* Define una altura consistente */
+  object-fit: cover; /* Mantiene las proporciones sin distorsionar la imagen */
+  border-radius: 0; /* Elimina el redondeado */
 }
 
 .card h2 {
