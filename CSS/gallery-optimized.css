@@ -1,0 +1,164 @@
+/* ===== GALLERY OPTIMIZATION CSS ===== */
+
+/* Image Optimization */
+.gallery-item img {
+  /* Improved image rendering */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: optimize-contrast;
+  image-rendering: crisp-edges;
+  
+  /* Content visibility for better performance */
+  content-visibility: auto;
+  contain-intrinsic-size: 280px 320px;
+}
+
+/* WebP Support */
+.gallery-item img[src$=".webp"] {
+  /* Additional optimization for WebP images */
+  image-rendering: auto;
+}
+
+/* Loading State */
+.gallery-item.loading {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading-shimmer 1.5s infinite;
+}
+
+@keyframes loading-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Intersection Observer Animations */
+.gallery-item.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.gallery-item.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Performance Optimizations */
+.gallery-grid {
+  /* GPU acceleration */
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.gallery-item {
+  /* Optimize repaints */
+  contain: layout style paint;
+  
+  /* Hardware acceleration */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.gallery-item:hover {
+  /* Optimize hover animations */
+  will-change: transform, box-shadow;
+}
+
+.gallery-item:not(:hover) {
+  will-change: auto;
+}
+
+/* Reduce Motion for Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .gallery-item {
+    transition: none;
+  }
+  
+  .gallery-item img {
+    transform: none !important;
+  }
+  
+  .gallery-item:hover {
+    transform: none !important;
+  }
+  
+  .gallery-item.fade-in {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .gallery-overlay {
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.95) 0%,
+      rgba(0, 0, 0, 0.8) 40%,
+      rgba(0, 0, 0, 0.4) 70%,
+      transparent 100%
+    );
+  }
+  
+  .gallery-btn {
+    border: 2px solid var(--primary-color);
+  }
+}
+
+/* Focus Management */
+.gallery-item:focus {
+  outline: 3px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+.gallery-item:focus-visible {
+  outline: 3px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+/* Filter Animation Improvements */
+.gallery-item.filtering {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.gallery-item.filtering.hide {
+  opacity: 0;
+  transform: scale(0.8);
+  pointer-events: none;
+}
+
+.gallery-item.filtering.show {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .gallery-item {
+    /* Reduce complexity on mobile */
+    will-change: auto;
+  }
+  
+  .gallery-item img {
+    /* Simpler transitions on mobile */
+    transition: none;
+  }
+  
+  .gallery-item:hover img {
+    transform: none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .gallery-filters,
+  .gallery-overlay,
+  .gallery-btn {
+    display: none !important;
+  }
+  
+  .gallery-item {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}

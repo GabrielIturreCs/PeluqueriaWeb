@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://peluqueriapetit.com/sitemap.xml
+
+# Disallow crawling of admin areas and temporary files
+Disallow: /admin/
+Disallow: /temp/
+Disallow: /*.tmp$
+Disallow: /*.bak$
+
+# Allow crawling of CSS and JS files for better rendering
+Allow: /CSS/
+Allow: /js/
+Allow: /images/
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1

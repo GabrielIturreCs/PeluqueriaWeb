@@ -1,0 +1,16 @@
+{
+  "name": "Peluquería Petit",
+  "short_name": "Petit",
+  "description": "Salón de belleza profesional en Palpalá, Jujuy. Cortes especializados y asesoramiento personalizado.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f9f5f0",
+  "theme_color": "#4d2c1d",
+  "orientation": "portrait-primary",
+  "icons": [],
+  "categories": ["beauty", "lifestyle", "business"],
+  "lang": "es-AR",
+  "dir": "ltr",
+  "scope": "/",
+  "screenshots": []
+}
